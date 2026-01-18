@@ -1,0 +1,14 @@
+version: '3.9'
+
+services:
+  gigaml-backend:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - API_KEY=  # empty for test mode
+      - DEBUG=false
+    volumes:
+      - .:/app
+    restart: unless-stopped
